@@ -9,7 +9,11 @@ function jump() {
         character.classList.remove("animate")
     }, 500)
 }
-
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+        jump()
+    }
+}
 var checkDead = setInterval(function () {
     var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
     var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
@@ -17,6 +21,6 @@ var checkDead = setInterval(function () {
         block.style.animation = "none";
         block.style.display = "none";
         alert("Você perdeu );")
+        window.location.reload();
     }
- /* else    window.location.reload();  */
 }, 10)
